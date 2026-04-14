@@ -3,7 +3,7 @@ services:
     container_name: backend
     image: ghcr.io/intuitem/ciso-assistant-community/backend:latest
     pull_policy: always
-    restart: always
+    restart: no
     environment:
       - ALLOWED_HOSTS=backend,localhost
       - CISO_ASSISTANT_URL=http://localhost:3000
@@ -27,7 +27,7 @@ services:
     depends_on:
       backend:
         condition: service_healthy
-    restart: always
+    restart: no
     environment:
       - ALLOWED_HOSTS=backend,localhost
       - CISO_ASSISTANT_URL=http://localhost:3000
