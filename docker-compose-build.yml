@@ -4,7 +4,7 @@ services:
     build:
       context: ./backend
       dockerfile: Dockerfile
-    restart: always
+    restart: no
     environment:
       - ALLOWED_HOSTS=backend,localhost
       - CISO_ASSISTANT_URL=https://localhost:8443
@@ -19,7 +19,7 @@ services:
       dockerfile: Dockerfile
     depends_on:
       - backend
-    restart: always
+    restart: no
     environment:
       - ALLOWED_HOSTS=backend,localhost
       - CISO_ASSISTANT_URL=https://localhost:8443
@@ -51,7 +51,7 @@ services:
     image: caddy:2.10.0
     environment:
       - CISO_ASSISTANT_URL=https://localhost:8443
-    restart: unless-stopped
+    restart: no
     ports:
       - 8443:8443
     volumes:
